@@ -13,36 +13,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-/*
-        Thread splash_thread= new Thread()
-        {
-            public void run()
-            {
-                try
-                {
-
-                sleep(3000);
-
-
-                }
-                catch(Exception exception)
-                {
-                    exception.printStackTrace();
-                }
-                finally {
-                    Intent i = new Intent(MainActivity.this,Login.class);
-                    startActivity(i);
-                }
-
-
-
-            }
-
-
-
-
-        };
-        splash_thread.start();*/
 
 
        new Handler().postDelayed(new Runnable() {
@@ -52,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
                startActivity(i);
                finish();
            }
-       },5*1000);
+       },2*1000);
+
+
     }
 }
