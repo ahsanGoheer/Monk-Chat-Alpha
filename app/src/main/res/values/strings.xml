@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Monk Chat</string>
+    <string name="login_text">Login</string>
+    <string name="welcome_quote">Today or any day that phone may ring and bring good news. - Ethel Waters</string>
+    <string name="email_lbl">Email</string>
+    <string name="Signin_text">Sign in</string>
+    <string name="pass_lbl">Password</string>
+    <string name="forget_pass">Forgot password?</string>
+    <string name="doyouhave_text">Do you have an account?</string>
+    <string name="signup_text">Sign up here</string>
 </resources>
