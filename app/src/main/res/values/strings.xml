@@ -8,4 +8,21 @@
     <string name="forget_pass">Forgot password?</string>
     <string name="doyouhave_text">Do you have an account?</string>
     <string name="signup_text">Sign up here</string>
+    <string name="register_text">Register</string>
+    <string name="register_message">Wherever you go,take your friends with you.</string>
+    <string name="username_hint">Username</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password</string>
+    <string name="confirmpassword_hint">Confirm Password</string>
+    <string name="checkbox_text">I agree with the Terms and Conditions and the Privacy Policy.</string>
+    <string name="signupBtn_text">Sign Up</string>
+    <string name="already_text">Already have an account?</string>
+    <string name="confirmation_title">Confirmation</string>
+    <string name="confirmation_subtitle">You\'re almost there.</string>
+    <string name="editBtn_text">Edit</string>
+    <string name="confirmBtn_text">Confirm</string>
+    <string name="confirm_prompt">, kindly check your details and tap \"Confirm\" to proceed or \"Edit\" to go back to the sign up form.</string>
+    <string name="congrats_text">Congratulations</string>
+    <string name="congrats_message">! you have successfully created your Monk account. We are glad to have you on-board.</string>
+
 </resources>

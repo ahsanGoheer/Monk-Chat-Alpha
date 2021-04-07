@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/app_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MonkChat">
-        <activity android:name=".Login"
-            android:label="Monk Login">
-           <!-- <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-        </activity>
+        <activity android:name=".Congratulations"></activity>
+        <activity android:name=".Confirmation" />
+        <activity
+            android:name=".SignUp"
+            android:label="Monk Signup" />
+        <activity
+            android:name=".Login"
+            android:label="Monk Login" />
         <activity
             android:name=".MainActivity"
             android:label="Monk"
