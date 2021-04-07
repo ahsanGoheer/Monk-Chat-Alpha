@@ -30,13 +30,13 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                if(userAddressBox.getText().toString()==userMail && userPasswordBox.getText().toString()==password)
+                if((userAddressBox.getText().toString().equals(userMail)) && (userPasswordBox.getText().toString().equals(password)))
                 {
                     Toast.makeText(getApplicationContext(),"Signed in!",Toast.LENGTH_LONG).show();
                 }
                 else
                     {
-                        Toast.makeText(getApplicationContext(),"Incorrect Credentials!",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(),"Incorrect Credentials",Toast.LENGTH_LONG).show();
                 }
             }
         });
