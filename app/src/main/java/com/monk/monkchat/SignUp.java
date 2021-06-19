@@ -1,10 +1,12 @@
 package com.monk.monkchat;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +18,14 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -25,13 +35,12 @@ public class SignUp extends AppCompatActivity {
     Button signUpBtn=null;
     EditText userName,password,confirmPassword,email;
     CheckBox termsBox=null;
-
-
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
+        mAuth = FirebaseAuth.getInstance();
         loginText=(TextView) findViewById(R.id.loginTextTV);
         signUpBtn=(Button) findViewById(R.id.signupBtn);
         userName=(EditText)findViewById(R.id.usernameET);
@@ -58,8 +67,25 @@ public class SignUp extends AppCompatActivity {
                         i.putExtra("Username",userName.getText().toString());
                         i.putExtra("Email",email.getText().toString());
                         i.putExtra("Password",password.getText().toString());
-                        startActivityForResult(i,2);
 
+
+                        mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).
+                                addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NotNull Task<AuthResult> task) {
+                                        if (task.isSuccessful()) {
+                                            Log.d("Sign Up", "Sign Up Successful!");
+                                        } else {
+                                            Log.d("Sign Up", "Sign Up Failed!");
+
+                                        }
+                                    }
+                                });
+
+
+/*
+                        startActivityForResult(i,2);
+*/
                     }
                     else
                     {
@@ -104,7 +130,9 @@ public class SignUp extends AppCompatActivity {
         });
 
 
+
     }//END ON CREATE
+
 
 
     @Override
