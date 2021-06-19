@@ -25,6 +25,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
+import com.monk.monkchat.Models.Users;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -87,6 +88,9 @@ public class SignUp extends AppCompatActivity {
                                         signUpProgress.dismiss();
                                         if (task.isSuccessful()) {
                                             Log.d("Sign Up", "Sign Up Successful!");
+                                            String userId= task.getResult().getUser().getUid();
+                                            Users newUser = new Users(userName.getText().toString(),email.getText().toString(),password.getText().toString());
+                                            dbConn.getReference().child("Users").child(userId).setValue(newUser);
                                             Toast.makeText(getApplicationContext(),"Sign Up Successful!",Toast.LENGTH_SHORT).show();
                                         } else {
                                             Log.d("Sign Up", task.getException().getMessage());
