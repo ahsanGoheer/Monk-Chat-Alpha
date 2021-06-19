@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/app_launcher_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MonkChat"
-        android:usesCleartextTraffic="true"
-        >
-        <activity android:name=".Congratulations"></activity>
+        android:usesCleartextTraffic="true">
+        <activity android:name=".MainView"></activity>
+        <activity android:name=".Congratulations" />
         <activity android:name=".Confirmation" />
         <activity
             android:name=".SignUp"

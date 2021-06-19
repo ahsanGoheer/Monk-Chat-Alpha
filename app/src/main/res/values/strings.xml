@@ -24,5 +24,7 @@
     <string name="confirm_prompt">, kindly check your details and tap \"Confirm\" to proceed or \"Edit\" to go back to the sign up form.</string>
     <string name="congrats_text">Congratulations</string>
     <string name="congrats_message">! you have successfully created your Monk account. We are glad to have you on-board.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
