@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "869179737746",
+    "project_id": "monk-chat-89cd2",
+    "storage_bucket": "monk-chat-89cd2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869179737746:android:43932964a80f75f12e084b",
+        "android_client_info": {
+          "package_name": "com.monk.monkchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869179737746-2vsjq3dcurv7qdh9115t8ugi7cpc3ior.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN9693nBMdgR1t0gJRKio6QmQAlQ_UdYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869179737746-2vsjq3dcurv7qdh9115t8ugi7cpc3ior.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
