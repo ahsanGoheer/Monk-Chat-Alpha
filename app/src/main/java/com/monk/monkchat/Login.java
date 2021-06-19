@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity {
                             }
                             else
                             {
-                                Log.d("Login","Login wasn't successful!");
+                                Log.d("Login",task.getException().getMessage());
                                 Toast.makeText(getApplicationContext(),"Login wasn't successful!",Toast.LENGTH_SHORT).show();
 
                             }

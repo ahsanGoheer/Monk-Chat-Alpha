@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -36,11 +38,14 @@ public class SignUp extends AppCompatActivity {
     EditText userName,password,confirmPassword,email;
     CheckBox termsBox=null;
     private FirebaseAuth mAuth;
+    private FirebaseDatabase dbConn;
+    ProgressDialog signUpProgress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         mAuth = FirebaseAuth.getInstance();
+        dbConn=FirebaseDatabase.getInstance();
         loginText=(TextView) findViewById(R.id.loginTextTV);
         signUpBtn=(Button) findViewById(R.id.signupBtn);
         userName=(EditText)findViewById(R.id.usernameET);
@@ -48,6 +53,11 @@ public class SignUp extends AppCompatActivity {
         password=(EditText)findViewById(R.id.passwordET);
         confirmPassword=(EditText) findViewById(R.id.confirmPasswordET);
         termsBox=(CheckBox)findViewById(R.id.termsConditionsCB);
+
+        signUpProgress=new ProgressDialog(SignUp.this);
+        signUpProgress.setTitle("Creating Your Account.");
+        signUpProgress.setMessage("Your account is being created!");
+
 
         ArrayList<EditText> textFields = new ArrayList<EditText>();
         textFields.add(userName);
@@ -58,6 +68,7 @@ public class SignUp extends AppCompatActivity {
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                signUpProgress.show();
                 if(termsBox.isChecked()&&!userName.getText().toString().equals("") && !email.getText().toString().equals("") && !password.getText().toString().equals("") && !confirmPassword.getText().toString().equals(""))
                 {
 
@@ -73,10 +84,13 @@ public class SignUp extends AppCompatActivity {
                                 addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
                                     @Override
                                     public void onComplete(@NotNull Task<AuthResult> task) {
+                                        signUpProgress.dismiss();
                                         if (task.isSuccessful()) {
                                             Log.d("Sign Up", "Sign Up Successful!");
+                                            Toast.makeText(getApplicationContext(),"Sign Up Successful!",Toast.LENGTH_SHORT).show();
                                         } else {
-                                            Log.d("Sign Up", "Sign Up Failed!");
+                                            Log.d("Sign Up", task.getException().getMessage());
+                                            Toast.makeText(getApplicationContext(),"Sign Up Failed!",Toast.LENGTH_SHORT).show();
 
                                         }
                                     }
