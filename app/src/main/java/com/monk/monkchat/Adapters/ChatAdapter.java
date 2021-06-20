@@ -34,8 +34,7 @@ public class ChatAdapter extends RecyclerView.Adapter{
         if(viewType == SENDER_VIEW_TYPE){
             View view = LayoutInflater.from(context).inflate(R.layout.sender_box, parent, false);
             return new SenderViewHolder(view);
-        }
-        else{
+        } else {
             View view = LayoutInflater.from(context).inflate(R.layout.reciever_box, parent, false);
             return new ReceiverViewHolder(view);
         }

@@ -116,7 +116,7 @@ public class ChatPage extends AppCompatActivity {
                 newMessageToChatET.setText("");
 
                 final String senderRoom = senderId + recieverId;
-                final String receiverRoom = senderId + recieverId;
+                final String receiverRoom = recieverId + senderId;
 
                 database.getReference().child("chats")
                         .child(senderRoom)
