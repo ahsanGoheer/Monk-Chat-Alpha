@@ -56,6 +56,13 @@ public class MainView extends AppCompatActivity {
                 Intent logOutIntent=new Intent(MainView.this,Login.class);
                 startActivity(logOutIntent);
                 break;
+
+            case R.id.groupChat:
+
+                Intent intent = new Intent(MainView.this,GroupChatActivity.class);
+                startActivity(intent);
+                break;
+
             default:
                 Log.d("Item Select","There was an error!");
                 break;
