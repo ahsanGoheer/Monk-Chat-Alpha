@@ -1,5 +1,6 @@
 package com.monk.monkchat;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +14,10 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.monk.monkchat.Adapters.ChatAdapter;
 import com.monk.monkchat.Models.MessageModel;
 import com.squareup.picasso.Picasso;
@@ -80,6 +84,28 @@ public class ChatPage extends AppCompatActivity {
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         messagesOnChatRV.setLayoutManager(layoutManager);
+
+        final String senderRoom = senderId + recieverId;
+        final String recieverRoom = recieverId + senderId;
+
+        database.getReference().child("chats")
+                .child(senderRoom)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        messageModels.clear();
+                        for (DataSnapshot snapshot1: snapshot.getChildren()){
+                            MessageModel model = snapshot1.getValue(MessageModel.class);
+                            messageModels.add(model);
+                        }
+                        chatAdapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
 
         newMessageSendIV.setOnClickListener(new View.OnClickListener() {
             @Override

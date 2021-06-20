@@ -27,7 +27,7 @@ public class MainView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_view);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         logAuth=FirebaseAuth.getInstance();
         viewPager = findViewById(R.id.viewPager);
