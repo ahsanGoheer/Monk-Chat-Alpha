@@ -7,7 +7,7 @@
     tools:context=".ChatPage">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/groupchat_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -70,7 +70,7 @@
         android:id="@+id/messagesOnChatRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/groupchat_toolbar"
         android:layout_above="@id/messagePanel"
         android:background="@color/browser_actions_bg_grey"/>
 

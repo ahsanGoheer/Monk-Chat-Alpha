@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,7 +7,7 @@
     tools:context=".GroupChatActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/groupchat_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -34,13 +33,16 @@
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="300dp"
                 android:padding="5dp"
                 android:src="@drawable/avatar"
                 app:civ_border_color="#FF000000"
                 app:civ_border_width="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/backFromChatIV"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/backFromChatGroupIV"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
             <ImageView
                 android:id="@+id/voiceCallGroupIV"
@@ -57,12 +59,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="132dp"
                 android:text="Recepient Name"
                 android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/profileImageOnChatPage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/profileImageOnChatPageGroup"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.615" />
+                app:layout_constraintVertical_bias="0.611" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.appcompat.widget.Toolbar>
@@ -71,7 +75,7 @@
         android:id="@+id/messagesOnChatGroupRV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/groupchat_toolbar"
         android:layout_above="@id/messageGroupPanel"
         android:background="@color/browser_actions_bg_grey"/>
 
@@ -95,7 +99,7 @@
             android:padding="10dp" />
 
         <ImageView
-            android:id="@+id/newMessageSendGroup IV"
+            android:id="@+id/newMessageSendGroupIV"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="10dp"

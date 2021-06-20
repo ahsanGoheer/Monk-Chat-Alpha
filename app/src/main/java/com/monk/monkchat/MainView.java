@@ -49,6 +49,8 @@ public class MainView extends AppCompatActivity {
         switch(item.getItemId())
         {
             case R.id.settings:
+                Intent settingsIntent= new Intent(MainView.this,settings.class);
+                startActivity(settingsIntent);
                 break;
             case R.id.logout:
                 logAuth.signOut();
