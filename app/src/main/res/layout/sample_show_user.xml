@@ -2,9 +2,48 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="100dp"
     android:orientation="horizontal">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/avatar"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"
+        android:layout_marginLeft="5dp"
+        android:padding="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:id="@+id/contactNameTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name of Contact"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/lastMessageTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Latest message"
+            android:paddingTop="5dp"
+            android:paddingBottom="2dp"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>

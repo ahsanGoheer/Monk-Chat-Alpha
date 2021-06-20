@@ -45,7 +45,7 @@ public class Users {
         return userPassword;
     }
 
-    public String getUserId() {
+    public String getUserId(String key) {
         return userId;
     }
 
