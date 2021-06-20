@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.monk.monkchat.Adapters.ChatAdapter;
@@ -19,6 +20,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -79,5 +81,36 @@ public class ChatPage extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         messagesOnChatRV.setLayoutManager(layoutManager);
 
+        newMessageSendIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newMessage = newMessageToChatET.getText().toString();
+                final MessageModel messageModel = new MessageModel(senderId, newMessage);
+                messageModel.setTimestamp((new Date()).getTime());
+                newMessageToChatET.setText("");
+
+                final String senderRoom = senderId + recieverId;
+                final String receiverRoom = senderId + recieverId;
+
+                database.getReference().child("chats")
+                        .child(senderRoom)
+                        .push()
+                        .setValue(messageModel)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                database.getReference().child("chats")
+                                        .child(receiverRoom)
+                                        .push()
+                                        .setValue(messageModel)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                            }
+                                        });
+                            }
+                        });
+            }
+        });
     }
 }
