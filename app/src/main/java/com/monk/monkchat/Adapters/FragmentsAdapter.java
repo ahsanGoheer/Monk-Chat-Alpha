@@ -37,7 +37,7 @@ public class FragmentsAdapter extends FragmentPagerAdapter {
         String title = null;
         if(position == 0) {
             title = "CHATS";
-        } else if(position == 0) {
+        } else if(position == 1) {
             title = "STATUS";
         } else {
             title = "CALLS";

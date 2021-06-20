@@ -13,7 +13,7 @@ public class Congratulations extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_congratulations);
-
+        getSupportActionBar().hide();
         Intent currentIntent=getIntent();
 
         String username=currentIntent.getStringExtra("Username");

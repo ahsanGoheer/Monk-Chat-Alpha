@@ -17,7 +17,7 @@ public class Confirmation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirmation);
-
+        getSupportActionBar().hide();
         userName=(TextView) findViewById(R.id.userNameText);
         email=(TextView)findViewById(R.id.emailText);
         pass=(TextView) findViewById(R.id.passwordText);

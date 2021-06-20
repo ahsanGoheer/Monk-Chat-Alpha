@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatPage">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/userNameTb"
+                app:layout_constraintHorizontal_bias="0.129"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_back" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="52dp"
+                android:layout_height="44dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.202"
+                app:layout_constraintStart_toEndOf="@+id/userNameTb"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/ic_phone" />
+
+            <TextView
+                android:id="@+id/userNameTb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recepient Name"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.452"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.64" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/messagesRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@id/messagePanel"
+        android:background="@color/browser_actions_bg_grey"/>
+
+    <LinearLayout
+        android:id="@+id/messagePanel"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="1dp"
+        android:orientation="horizontal"
+        android:background="@color/browser_actions_bg_grey">
+
+        <EditText
+            android:layout_width="318dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:padding="10dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/input_box_shape"
+            android:hint="Enter message here" />
+
+        <ImageView
+            android:layout_width="77dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_send_btn" />
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -2,7 +2,7 @@ package com.monk.monkchat.Models;
 
 public class Users {
 
-    String userName,userEmail,userPassword,userId,lastMessage;
+    String profilePic,userName,userEmail,userPassword,userId,lastMessage;
 
     //Default Constructor
     public Users(){}
@@ -16,12 +16,21 @@ public class Users {
         this.userPassword=userPassword;
     }
 
-    public Users(String userName, String userEmail, String userPassword, String userId, String lastMessage) {
+    public Users(String profilePic,String userName, String userEmail, String userPassword, String userId, String lastMessage) {
+        this.profilePic=profilePic;
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userId = userId;
         this.lastMessage = lastMessage;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public String getUserName() {

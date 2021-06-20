@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MonkChat"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainView"></activity>
+        <activity android:name=".ChatPage"></activity>
+        <activity android:name=".MainView" />
         <activity android:name=".Congratulations" />
         <activity android:name=".Confirmation" />
         <activity
