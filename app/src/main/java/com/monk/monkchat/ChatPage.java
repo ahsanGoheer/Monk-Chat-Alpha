@@ -1,6 +1,8 @@
 package com.monk.monkchat;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +13,12 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.monk.monkchat.Adapters.ChatAdapter;
+import com.monk.monkchat.Models.MessageModel;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
+
+import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -25,6 +31,7 @@ public class ChatPage extends AppCompatActivity {
     ImageView backFromChatIV, voiceCallIV, newMessageSendIV;
     TextView userNameOnChatTV;
     EditText newMessageToChatET;
+    RecyclerView messagesOnChatRV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +48,11 @@ public class ChatPage extends AppCompatActivity {
         newMessageSendIV = findViewById(R.id.newMessageSendIV);
         userNameOnChatTV = findViewById(R.id.userNameOnChatTV);
         newMessageToChatET = findViewById(R.id.newMessageToChatET);
+        messagesOnChatRV = findViewById(R.id.messagesOnChatRV);
 
         profileImageOnChatPage = findViewById(R.id.profileImageOnChatPage);
 
-        String senderId = auth.getUid();
+        final String senderId = auth.getUid();
 
         Intent intent =  getIntent();
         String recieverId = intent.getStringExtra("userId");
@@ -62,5 +70,14 @@ public class ChatPage extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
+        final ArrayList<MessageModel> messageModels = new ArrayList<>();
+
+        final ChatAdapter chatAdapter = new ChatAdapter(messageModels, this);
+        messagesOnChatRV.setAdapter(chatAdapter);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        messagesOnChatRV.setLayoutManager(layoutManager);
+
     }
 }

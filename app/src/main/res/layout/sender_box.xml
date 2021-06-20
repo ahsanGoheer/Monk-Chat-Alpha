@@ -17,7 +17,7 @@
         android:layout_alignParentRight="true"
         >
         <TextView
-            android:id="@+id/messageString"
+            android:id="@+id/senderMessageString"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="250dp"
@@ -31,7 +31,7 @@
             app:layout_constraintVertical_bias="0.284" />
 
         <TextView
-            android:id="@+id/timeString"
+            android:id="@+id/senderTimeString"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
@@ -40,7 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.703"
-            app:layout_constraintStart_toEndOf="@+id/messageString"
+            app:layout_constraintStart_toEndOf="@+id/senderMessageString"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.911" />
 
