@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -29,6 +30,8 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class settings extends AppCompatActivity {
@@ -39,6 +42,7 @@ public class settings extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseDatabase firebaseDatabase;
     EditText userNameSettings, AboutMeSettings;
+    Button saveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +56,33 @@ public class settings extends AppCompatActivity {
 
 
         getSupportActionBar().hide();
+        AboutMeSettings=(EditText)findViewById(R.id.aboutMeET);
+        userNameSettings=(EditText)findViewById(R.id.myUsernameET);
         backArrowSettings=(ImageView)findViewById(R.id.backArrowSettings);
         addImage=(ImageView)findViewById(R.id.addProfilePicture);
         profilePicture=(CircleImageView)findViewById(R.id.profileImageSettings);
-
+        saveBtn=(Button)findViewById(R.id.saveBtn);
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String status= AboutMeSettings.getText().toString();
+                String username=userNameSettings.getText().toString();
+                HashMap<String,Object> obj=new HashMap<String,Object>();
+                obj.put("userName",username);
+                obj.put("status",status);
+                firebaseDatabase.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).updateChildren(obj);
+                Log.d("Save Data","Data has been saved!");
+                Toast.makeText(getApplicationContext(),"Data Saved!",Toast.LENGTH_SHORT).show();
+            }
+        });
 
         firebaseDatabase.getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 Users myUser= snapshot.getValue(Users.class);
                 Picasso.get().load(myUser.getProfilePic()).placeholder(R.drawable.user).into(profilePicture);
+                AboutMeSettings.setText(myUser.getStatus());
+                userNameSettings.setText(myUser.getUserName());
 
 
             }
@@ -71,12 +92,6 @@ public class settings extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
 
 
         backArrowSettings.setOnClickListener(new View.OnClickListener() {
