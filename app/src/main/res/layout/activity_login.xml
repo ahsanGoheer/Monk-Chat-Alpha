@@ -60,7 +60,7 @@
         android:layout_width="245dp"
         android:layout_height="45dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
+
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="448dp"
         android:drawableLeft="@drawable/email_icon"

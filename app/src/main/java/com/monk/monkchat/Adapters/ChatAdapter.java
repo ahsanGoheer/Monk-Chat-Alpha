@@ -17,7 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.monk.monkchat.Models.MessageModel;
 import com.monk.monkchat.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ChatAdapter extends RecyclerView.Adapter{
 
@@ -97,8 +99,14 @@ public class ChatAdapter extends RecyclerView.Adapter{
 
         if(holder.getClass() == SenderViewHolder.class){
             ((SenderViewHolder) holder).senderMessage.setText(messageModel.getMessage());
+            SimpleDateFormat formatter = new SimpleDateFormat("hh:mm - dd/MM/yy");
+            String dateString = formatter.format(new Date(messageModel.getTimestamp()));
+            ((SenderViewHolder) holder).senderTime.setText(dateString);
         }else{
             ((ReceiverViewHolder) holder).receiverMessage.setText(messageModel.getMessage());
+            SimpleDateFormat formatter = new SimpleDateFormat("hh:mm - dd/MM/yy");
+            String dateString = formatter.format(new Date(messageModel.getTimestamp()));
+            ((ReceiverViewHolder) holder).receiverTime.setText(dateString);
         }
     }
 
