@@ -1,1 +1,3 @@
-https://docs.google.com/document/d/1eO-1YbpAD1YPeX-sDs1oz0WYJvXskZXSbIG7nGb2-Wc/edit?usp=sharing
+# Monk Chat 
+
+A chat application for android, created using firebase which is a real time database. 
