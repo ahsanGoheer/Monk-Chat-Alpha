@@ -101,10 +101,8 @@ public class SignUp extends AppCompatActivity {
                                     }
                                 });
 
-
-/*
+                        signUpProgress.cancel();
                         startActivityForResult(i,2);
-*/
                     }
                     else
                     {

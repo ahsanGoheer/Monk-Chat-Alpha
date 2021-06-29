@@ -60,6 +60,7 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"Login Successful!",Toast.LENGTH_SHORT).show();
                                 Intent i = new Intent(Login.this,MainView.class);
                                 startActivity(i);
+                                finish();
                             }
                             else
                             {
@@ -91,6 +92,7 @@ public class Login extends AppCompatActivity {
         {
             Intent redirectIntent= new Intent(Login.this,MainView.class);
             startActivity(redirectIntent);
+            finish();
         }
 
     }
